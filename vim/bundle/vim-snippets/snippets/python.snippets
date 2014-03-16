@@ -33,10 +33,24 @@ snippet with
 snippet cl
 	class ${1:ClassName}(${2:object}):
 		"""${3:docstring for $1}"""
+		# === BEGIN private attributes ============================================
+		# === END private attributes ==============================================
+
+		# === BEGIN public attributes =============================================
+		# === END public attributes ===============================================
+
+		# === BEGIN constructors ==================================================
 		def __init__(self, ${4:arg}):
 			${5:super($1, self).__init__()}
 			self.$4 = $4
 			${6}
+		# === END constructors ====================================================
+		# === BEGIN private methods ===============================================
+
+		# === END private methods =================================================
+
+		# === BEGIN public methods ================================================
+		# === END public methods ==================================================
 # New Function
 snippet def
 	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
