@@ -55,6 +55,7 @@ set nofoldenable
 let mapleader = ','
 noremap <silent> <F8> :TlistToggle<CR>
 nmap <silent> <F9> :NERDTreeToggle<CR>
+nmap <silent> <F12> :BufExplorer<CR>
 
 if has('gui_running')
     set guicursor=a:blinkon0 " Disable blinking cursor
@@ -85,9 +86,12 @@ ca ~? ~/
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_Process_File_Always=1
 au FileType java set tags=~/.tags
+set tags=~/dev/TAGS
+noremap <Leader>t :!ctags -R -o ~/dev/TAGS ~/dev<CR>
+map <C-j> :exec("tag ".expand("<cword>"))<CR>
 
 " Indentations
-autocmd BufRead,BufNewFile *.rb,*.html,*.xml,*.erb set ai ts=2 sw=2
+"autocmd BufRead,BufNewFile *.rb,*.html,*.xml,*.erb set ai ts=2 sw=2
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
