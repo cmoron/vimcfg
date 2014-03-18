@@ -42,6 +42,9 @@ set cursorline
 set guifont=Monaco\ 10
 set expandtab
 set ai ts=4 sw=4
+set showbreak=⇇
+set listchars=tab:→\ ,trail:·,extends:>,precedes:<
+set list                   "show white characters"
 
 set t_Co=256 " Enable 16 colors in Terminal
 color xoria256 " My color scheme, adopted from TextMate
@@ -55,12 +58,15 @@ set nofoldenable
 let mapleader = ','
 noremap <silent> <F8> :TlistToggle<CR>
 nmap <silent> <F9> :NERDTreeToggle<CR>
-nmap <silent> <F12> :BufExplorer<CR>
 
 if has('gui_running')
     set guicursor=a:blinkon0 " Disable blinking cursor
     set columns=180 lines=55 " Default window size
 endif
+
+" Indent backward
+imap <S-Tab> <C-o><<
+
 " Scroll down faster
 no J 2<c-e>
 no K 3<c-y>
@@ -85,21 +91,24 @@ ca ~? ~/
 " taglist
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_Process_File_Always=1
-au FileType java set tags=~/.tags
 set tags=~/dev/TAGS
 noremap <Leader>t :!ctags -R -o ~/dev/TAGS ~/dev<CR>
 map <C-j> :exec("tag ".expand("<cword>"))<CR>
 
-" Indentations
-"autocmd BufRead,BufNewFile *.rb,*.html,*.xml,*.erb set ai ts=2 sw=2
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_max_height = 50
 
 " Ruby autocomplete
 set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
+" Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
+nnoremap <silent> <F12> :BufExplorer<CR>
+nnoremap <silent> <M-F12> :bn<CR>
+nnoremap <silent> <S-F12> :bp<CR>
