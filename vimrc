@@ -8,7 +8,6 @@ execute pathogen#infect()
 " 1. Settings
 " ============================
 
-
 syntax on
 filetype plugin indent on
 set nobackup
@@ -112,3 +111,41 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 nnoremap <silent> <F12> :BufExplorer<CR>
 nnoremap <silent> <M-F12> :bn<CR>
 nnoremap <silent> <S-F12> :bp<CR>
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airling_powerline_fonts = 1
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Remove toolbar
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+
+" jcommenter
+autocmd FileType java source ~/.vim/bundle/jcommenter/plugin/jcommenter.vim
