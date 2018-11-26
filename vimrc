@@ -31,7 +31,7 @@ set completeopt=menu       " Don't show extra info on completions
 set ignorecase smartcase   " Only be case sensitive when search has uppercase
 set gdefault               " Assume /g flag on :s searches
 set hidden                 " Allow hidden buffers
-set mouse=nchr             " Enable mouse support, unless in insert mode
+"set mouse=nchr             " Enable mouse support, unless in insert mode
 set enc=utf-8              " Enable unicode support
 set nofoldenable           " Disable folding
 set ruler
@@ -88,11 +88,11 @@ ca ~? ~/
 
 
 " taglist
-let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-let Tlist_Process_File_Always=1
-set tags=~/dev/TAGS
-noremap <Leader>t :!ctags -R -o ~/dev/TAGS ~/dev<CR>
-map <C-j> :exec("tag ".expand("<cword>"))<CR>
+"let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+"let Tlist_Process_File_Always=1
+"set tags=~/dev/TAGS
+"noremap <Leader>t :!ctags -R -o ~/dev/TAGS ~/dev<CR>
+"map <C-j> :exec("tag ".expand("<cword>"))<CR>
 
 
 " CtrlP
