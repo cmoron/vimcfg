@@ -3,15 +3,12 @@
 " ============================
 execute pathogen#infect()
 
-
 " ============================
 " 1. Settings
 " ============================
 
 syntax on
 filetype plugin indent on
-set nobackup
-set nowritebackup
 
 set shm=atI                " Disable intro screen
 set lazyredraw             " Don't redraw screen during macros
@@ -86,15 +83,6 @@ ca eariler earlier
 ca !+ !=
 ca ~? ~/
 
-
-" taglist
-"let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-"let Tlist_Process_File_Always=1
-"set tags=~/dev/TAGS
-"noremap <Leader>t :!ctags -R -o ~/dev/TAGS ~/dev<CR>
-"map <C-j> :exec("tag ".expand("<cword>"))<CR>
-
-
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
@@ -130,16 +118,6 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Remove toolbar
 set guioptions-=m  "remove menu bar
