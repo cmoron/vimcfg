@@ -37,16 +37,17 @@ set ai                     " Enable autoindent
 set expandtab              " Indent with spaces
 set ts=4                   " Set tabstop to 4 : tab == 4 spaces
 set sw=4                   " Set shiftwidth to 4 : indent = 4 spaces
-set guifont=Monaco\ 10     " Set font
+set guifont=Hack\ 14     " Set font
 set listchars=tab:→\ ,trail:·,extends:>,precedes:< " Strings to use in 'list' mode and for the |:list| command.
 set list                   "show white characters"
 set hls                    " Highlight search terms
 set t_Co=256               " Enable 256 colors in Terminal
-color xoria256             " Set color scheme
+color wal                  " Set color scheme
 
 if has('gui_running')
     set guicursor=a:blinkon0 " Disable blinking cursor
     set columns=220 lines=55 " Default window size
+    color xoria256           " Set color scheme
 endif
 
 " Remove toolbar
