@@ -64,7 +64,8 @@ if &diff | syntax off | endif
 " ============================
 
 let mapleader = ','
-noremap <silent> <F8> :TlistToggle<CR>
+noremap <silent> <F7> :below vert terminal<CR>
+noremap <silent> <F8> :below terminal ++rows=15<CR>
 nmap <silent> <F9> :NERDTreeToggle<CR>
 
 " Indent backward
