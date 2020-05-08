@@ -21,7 +21,8 @@ set showcmd                " Show incomplete command at bottom right
 set bs=2                   " Allow backspacing over anything
 set wrap linebreak         " Automatically break lines
 set pastetoggle=<f2>       " Use <f2> to paste in text from other apps
-set wildmode=full wildmenu " Enable command-line tab completion
+set wildmenu
+set wildmode=longest:list,full " Enable command-line tab completion
 set completeopt=menu       " Don't show extra info on completions
 set ignorecase smartcase   " Only be case sensitive when search has uppercase
 set gdefault               " Assume /g flag on :s searches
@@ -36,7 +37,7 @@ set ai                     " Enable autoindent
 set et                     " Enable expandtab Indent with spaces
 set ts=4                   " Set tabstop to 4 : tab == 4 spaces
 set sw=4                   " Set shiftwidth to 4 : indent = 4 spaces
-set guifont=Hack\ 14     " Set font
+set guifont=Hack\ 14        " Set font
 set listchars=tab:→\ ,trail:·,extends:>,precedes:< " Strings to use in 'list' mode and for the |:list| command.
 set list                   "show white characters"
 set hls                    " Highlight search terms
