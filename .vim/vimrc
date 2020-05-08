@@ -6,7 +6,6 @@ execute pathogen#infect()
 " ============================
 " 1. Settings
 " ============================
-
 syntax on
 filetype plugin indent on
 
@@ -34,7 +33,7 @@ set number                 " Enable line numbers
 set so=7                   " Set scrolloff to 7 : Minimal number of screen lines to keep above and below the cursor.
 set cursorline             " Enable the cursorline
 set ai                     " Enable autoindent
-set expandtab              " Indent with spaces
+set et                     " Enable expandtab Indent with spaces
 set ts=4                   " Set tabstop to 4 : tab == 4 spaces
 set sw=4                   " Set shiftwidth to 4 : indent = 4 spaces
 set guifont=Hack\ 14     " Set font
@@ -57,38 +56,51 @@ set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
 " Turn syntax highlighting off for diff
-if &diff | syntax off | endif 
+if &diff | syntax off | endif
+
+" Disables automatic commenting on newline
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Define ts/sw by filetype (default is 4 spaces)"
+autocmd Filetype html setlocal ts=2 sw=2 et
+autocmd Filetype javascript setlocal ts=2 sw=2 et
 
 " ============================
 " 2. Mapping
 " ============================
-
 let mapleader = ','
+
+" Open terminal below
 noremap <silent> <F7> :below vert terminal<CR>
 noremap <silent> <F8> :below terminal ++rows=15<CR>
+
+" NERDTree mapping
 nmap <silent> <F9> :NERDTreeToggle<CR>
+nmap <silent> <tab> :NERDTreeFind<CR>
 
 " Indent backward
 imap <S-Tab> <C-o><<
 
 " Scroll down faster
-no J 2<c-e>
-no K 3<c-y>
+noremap J 2<c-e>
+noremap K 3<c-y>
+
+" Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
+noremap <silent> <F12> :BufExplorer<CR>
+noremap <silent> <S-F12> :bn<CR>
+noremap <silent> <S-F11> :bp<CR>
+
+" Delete trailing whitespace
+map <silent><leader>f :call Format()<CR>
 
 " ============================
 " 3. Plugins
 " ============================
-
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_height = 50
-
-" Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
-nnoremap <silent> <F12> :BufExplorer<CR>
-nnoremap <silent> <S-F12> :bn<CR>
-nnoremap <silent> <S-F11> :bp<CR>
 
 " Powerline
 let g:airline#extensions#tabline#enabled = 1
@@ -109,3 +121,15 @@ if !exists('g:airline_symbols')
    let g:airline_symbols.paste = '∥'
    let g:airline_symbols.whitespace = 'Ξ'
 endif
+
+" ============================
+" 4. Functions
+" ============================
+
+" Format function
+" Call retab function to reset tab characters to match et/ts setting
+" Delete trailing whitespaces
+function Format()
+    :retab
+    :%s/\s\+$//e
+:endfunction
