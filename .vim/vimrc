@@ -44,6 +44,7 @@ set hls                    " Highlight search terms
 set t_Co=256               " Enable 256 colors in Terminal
 colorscheme gruvbox        " Set color scheme
 set background=dark        " Set background color
+set relativenumber         " Enable relative line numbers
 
 if has('gui_running')
     set guicursor=a:blinkon0 " Disable blinking cursor
@@ -61,7 +62,7 @@ set guioptions-=L  "remove left-hand scroll bar
 if &diff | syntax off | endif
 
 " Disables automatic commenting on newline
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+"autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Define ts/sw by filetype (default is 4 spaces)"
 autocmd Filetype html setlocal ts=2 sw=2 et
@@ -70,7 +71,7 @@ autocmd Filetype javascript setlocal ts=2 sw=2 et
 " ============================
 " 2. Mapping
 " ============================
-let mapleader = ','
+let mapleader = ' '
 
 " Open terminal below
 noremap <silent> <F7> :below vert terminal<CR>
@@ -78,7 +79,7 @@ noremap <silent> <F8> :below terminal ++rows=15<CR>
 
 " NERDTree mapping
 nmap <silent> <F9> :NERDTreeToggle<CR>
-nmap <silent> <leader> <tab> :NERDTreeFind<CR>
+nmap <silent> <leader><Tab> :NERDTreeFind<CR>
 
 " Indent backward
 imap <S-Tab> <C-o><<
