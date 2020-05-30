@@ -67,7 +67,7 @@ if &diff | syntax off | endif
 " Define ts/sw by filetype (default is 4 spaces)"
 autocmd Filetype html setlocal ts=2 sw=2 et
 autocmd Filetype javascript setlocal ts=2 sw=2 et
-
+autocmd Filetype vue setlocal ts=2 sw=2 et
 " ============================
 " 2. Mapping
 " ============================
