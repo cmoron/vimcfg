@@ -45,6 +45,7 @@ set t_Co=256               " Enable 256 colors in Terminal
 colorscheme gruvbox        " Set color scheme
 set background=dark        " Set background color
 set relativenumber         " Enable relative line numbers
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo " Store .vimfo files in XDG CACHE dir
 
 if has('gui_running')
     set guicursor=a:blinkon0 " Disable blinking cursor
@@ -98,6 +99,9 @@ noremap <silent> <S-Tab> :bp<CR>
 " Delete trailing whitespace
 map <silent><leader>f :call Format()<CR>
 
+" Reload configuration
+nnoremap <Leader><CR> :so ~/.vim/vimrc<CR>
+
 " ============================
 " 3. Plugins
 " ============================
@@ -109,6 +113,7 @@ map <silent><leader>f :call Format()<CR>
 
 " FZF
 nnoremap <c-p> :FZF<cr>
+let g:fzf_preview_window = 'right:60%'
 
 " YCM
 nnoremap <leader>g :YcmCompleter GoTo<CR>
