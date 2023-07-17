@@ -113,6 +113,7 @@ nnoremap <Leader><CR> :so ~/.vim/vimrc<CR>
 
 " FZF
 nnoremap <c-p> :FZF<cr>
+nnoremap <Leader>p :Buffers<cr>
 let g:fzf_preview_window = 'right:60%'
 
 " YCM
