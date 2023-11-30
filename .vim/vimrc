@@ -1,7 +1,43 @@
 " ============================
-" 0. Pathogen plugin
+" 0. Plugins
 " ============================
-execute pathogen#infect()
+
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py
+  endif
+endfunction
+
+call plug#begin()
+
+Plug 'jlanzarotta/bufexplorer'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdcommenter'
+Plug 'flazz/vim-colorschemes'
+Plug 'tpope/vim-fugitive'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'honza/vim-snippets'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'dylanaraps/wal.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'lilydjwg/colorizer'
+Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'junegunn/fzf.vim'
+Plug 'jremmen/vim-ripgrep'
+Plug 'morhetz/gruvbox'
+Plug 'posva/vim-vue'
+
+call plug#end()
 
 " ============================
 " 1. Settings
