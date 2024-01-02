@@ -36,6 +36,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'morhetz/gruvbox'
 Plug 'posva/vim-vue'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
@@ -132,6 +133,9 @@ noremap <silent> <S-F11> :bp<CR>
 noremap <silent> <Tab> :bn<CR>
 noremap <silent> <S-Tab> :bp<CR>
 
+" ALE
+noremap <silent> <F10> :ALEToggle<CR>
+
 " Delete trailing whitespace
 map <silent><leader>f :call Format()<CR>
 
@@ -141,11 +145,6 @@ nnoremap <Leader><CR> :so ~/.vim/vimrc<CR>
 " ============================
 " 3. Plugins
 " ============================
-" CtrlP
-"set runtimepath^=~/.vim/bundle/ctrlp.vim
-"let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_cmd = 'CtrlP'
-"let g:ctrlp_max_height = 50
 
 " FZF
 nnoremap <c-p> :FZF<cr>
