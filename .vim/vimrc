@@ -8,7 +8,7 @@ function! BuildYCM(info)
   " - status: 'installed', 'updated', or 'unchanged'
   " - force:  set on PlugInstall! or PlugUpdate!
   if a:info.status == 'installed' || a:info.force
-    !./install.py
+    !./install.py --java-completer
   endif
 endfunction
 
@@ -37,6 +37,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'morhetz/gruvbox'
 Plug 'posva/vim-vue'
 Plug 'dense-analysis/ale'
+Plug 'bam9523/vim-decompile'
 
 call plug#end()
 
