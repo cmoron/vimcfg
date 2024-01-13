@@ -20,7 +20,7 @@ jobs:
         mkdir -p ~/.vim
         cp -r .vim/* ~/.vim/
     - name: Install Vim Plugins
-      run: vim +PlugInstall +qall -E
+      run: vim +'PlugInstall --sync' +qall -E
     - name: Create Archive
       run: tar -czf vim-config-archlinux.tar.gz ~/.vim ~/.vimrc
 
@@ -37,7 +37,7 @@ jobs:
         mkdir -p ~/.vim
         cp -r .vim/* ~/.vim/
     - name: Install Vim Plugins
-      run: vim +PlugInstall +qall -E
+      run: vim +'PlugInstall --sync' +qall -E
     - name: Create Archive
       run: tar -czf vim-config-c7-64.tar.gz ~/.vim ~/.vimrc
 
