@@ -14,13 +14,13 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install Vim and Dependencies
       run: |
-        pacman -Sy --noconfirm vim git
+        pacman -Sy --noconfirm vim git cmake python gcc
     - name: Setup Vim Configuration
       run: |
         mkdir -p ~/.vim
         cp -r .vim/* ~/.vim/
     - name: Install Vim Plugins
-      run: vim +PlugInstall +qall
+      run: vim +PlugInstall +qall -E
     - name: Create Archive
       run: tar -czf vim-config-archlinux.tar.gz ~/.vim ~/.vimrc
 
@@ -31,13 +31,13 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install Vim and Dependencies
       run: |
-        yum install -y vim git
+        yum install -y vim git cmake python3 gcc-c++
     - name: Setup Vim Configuration
       run: |
         mkdir -p ~/.vim
         cp -r .vim/* ~/.vim/
     - name: Install Vim Plugins
-      run: vim +PlugInstall +qall
+      run: vim +PlugInstall +qall -E
     - name: Create Archive
       run: tar -czf vim-config-c7-64.tar.gz ~/.vim ~/.vimrc
 
