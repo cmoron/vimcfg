@@ -38,6 +38,7 @@ Plug 'morhetz/gruvbox'
 Plug 'posva/vim-vue'
 Plug 'dense-analysis/ale'
 Plug 'bam9523/vim-decompile'
+Plug 'justinmk/vim-sneak'
 
 call plug#end()
 
@@ -80,10 +81,12 @@ set listchars=tab:→\ ,trail:·,extends:>,precedes:< " Strings to use in 'list'
 set list                   "show white characters"
 set hls                    " Highlight search terms
 set t_Co=256               " Enable 256 colors in Terminal
-colorscheme gruvbox        " Set color scheme
 set background=dark        " Set background color
 set relativenumber         " Enable relative line numbers
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo " Store .vimfo files in XDG CACHE dir
+if filereadable(expand('~/.vim/plugged/gruvbox/colors/gruvbox.vim'))
+  colorscheme gruvbox " Set color scheme
+endif
 
 if has('gui_running')
     set guicursor=a:blinkon0 " Disable blinking cursor
@@ -154,6 +157,9 @@ let g:fzf_preview_window = 'right:60%'
 
 " YCM
 nnoremap <leader>g :YcmCompleter GoTo<CR>
+
+" vim sneak
+let g:sneak#label = 1
 
 " Powerline
 let g:airline#extensions#tabline#enabled = 1
