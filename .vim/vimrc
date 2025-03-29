@@ -40,6 +40,10 @@ Plug 'posva/vim-vue'
 Plug 'dense-analysis/ale'
 Plug 'bam9523/vim-decompile'
 Plug 'justinmk/vim-sneak'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -88,6 +92,7 @@ set viminfo+=n$XDG_CACHE_HOME/vim/viminfo " Store .vimfo files in XDG CACHE dir
 if filereadable(expand('~/.vim/plugged/gruvbox/colors/gruvbox.vim'))
   colorscheme gruvbox " Set color scheme
 endif
+"set mouse=a                " Enable mouse support
 
 if has('gui_running')
     set guicursor=a:blinkon0 " Disable blinking cursor
@@ -111,6 +116,7 @@ if &diff | syntax off | endif
 autocmd Filetype html setlocal ts=2 sw=2 et
 autocmd Filetype javascript setlocal ts=2 sw=2 et
 autocmd Filetype vue setlocal ts=2 sw=2 et
+autocmd Filetype svelte setlocal ts=2 sw=2 et
 " ============================
 " 2. Mapping
 " ============================
@@ -158,6 +164,8 @@ let g:fzf_preview_window = 'right:60%'
 
 " YCM
 nnoremap <leader>g :YcmCompleter GoTo<CR>
+" Disable ycm
+let g:loaded_youcompleteme = 1
 
 " vim sneak
 let g:sneak#label = 1
@@ -181,6 +189,10 @@ if !exists('g:airline_symbols')
    let g:airline_symbols.paste = '∥'
    let g:airline_symbols.whitespace = 'Ξ'
 endif
+
+" Copilot
+autocmd BufEnter * :Copilot enable
+let g:copilot_workspace_folders = ["~/src"]
 
 " ============================
 " 4. Functions
